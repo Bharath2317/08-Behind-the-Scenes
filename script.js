@@ -90,3 +90,4 @@ const age1 = {
 
 age1.calc = john.calc;
 age1.calc();
+console.log(this);
