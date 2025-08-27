@@ -39,18 +39,54 @@
 // Hoisting and tdz
 
 // sum1(4, 5);
-console.log(sum1(2, 3));
+// console.log(sum1(2, 3));
 // console.log(sum2(2, 3));
-function sum1(a, b) {
-  return a + b;
-}
+// function sum1(a, b) {
+//   return a + b;
+// }
 
-const sum2 = function (a, b) {
-  return a * b;
-};
-console.log(sum2(2, 3));
+// const sum2 = function (a, b) {
+//   return a * b;
+// };
+// console.log(sum2(2, 3));
 
+// // console.log(sum3(2, 4));
+
+// const sum3 = (a, b) => a / b;
 // console.log(sum3(2, 4));
 
-const sum3 = (a, b) => a / b;
-console.log(sum3(2, 4));
+// THIS KEYWORD
+
+console.log(this);
+
+const calcAge = function (birthyear) {
+  let age = 2025 - birthyear;
+  console.log(this);
+  return age;
+};
+
+console.log(calcAge(2004));
+
+const age = birthyear => {
+  console.log(2025 - birthyear);
+  console.log(this);
+};
+
+age(2002);
+
+const john = {
+  year: 1999,
+  calc: function () {
+    console.log(2025 - this.year);
+    console.log(this);
+  },
+};
+
+john.calc();
+
+const age1 = {
+  year: 1994,
+};
+
+age1.calc = john.calc;
+age1.calc();
