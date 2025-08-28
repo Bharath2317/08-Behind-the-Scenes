@@ -57,37 +57,60 @@
 
 // THIS KEYWORD
 
-console.log(this);
+// console.log(this);
 
-const calcAge = function (birthyear) {
-  let age = 2025 - birthyear;
-  console.log(this);
-  return age;
+// const calcAge = function (birthyear) {
+//   let age = 2025 - birthyear;
+//   console.log(this);
+//   return age;
+// };
+
+// console.log(calcAge(2004));
+
+// const age = birthyear => {
+//   console.log(2025 - birthyear);
+//   console.log(this);
+// };
+
+// age(2002);
+
+// const john = {
+//   year: 1999,
+//   calc: function () {
+//     console.log(2025 - this.year);
+//     console.log(this);
+//   },
+// };
+
+// john.calc();
+
+// const age1 = {
+//   year: 1994,
+// };
+
+// age1.calc = john.calc;
+// age1.calc();
+// console.log(this);
+
+/////////////////////////////////////////////////
+// Object referance and shallow vs deep copies
+
+const arjun = {
+  age: 21,
+  firstName: 'arjun',
+  lastName: 'singh',
+  family: ['anitha', 'jalam'],
 };
 
-console.log(calcAge(2004));
+// const john = arjun;
+// john.firstName = 'John';
 
-const age = birthyear => {
-  console.log(2025 - birthyear);
-  console.log(this);
+const john = function (original, lastname) {
+  original.lastName = lastname;
+  return original;
 };
 
-age(2002);
+console.log(john(arjun, 'shaik'));
 
-const john = {
-  year: 1999,
-  calc: function () {
-    console.log(2025 - this.year);
-    console.log(this);
-  },
-};
-
-john.calc();
-
-const age1 = {
-  year: 1994,
-};
-
-age1.calc = john.calc;
-age1.calc();
-console.log(this);
+// console.log(john);
+// console.log(arjun);
